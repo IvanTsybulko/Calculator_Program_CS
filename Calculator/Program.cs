@@ -10,16 +10,35 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-            List<string> problem = Console.ReadLine().Split(' ').ToList();
-
+            //examples
             //11 * 22 + 33 * 11 / 22 + 11                   = 269.5
             //24 + 15 - 21 * 34 / 24 + 12 * 12 + 14 / 14    = 154.25
             //15 + ( 18 + 13 * 8 ) + 2                      = 139
             //15 + ( 18 + 13 * 8 ) + ( 8 + 9 ) + 2          = 156
             //15 + ( 8 * ( 18 + 13 * 8 ) - 9 ) + 2          = 984
+            //11 * 22 + 33 * 11 / 22 + 11 + 435 * ( 78 / 13.5 ) = 2782.83333333
+            //( ( ( 355 * 256 ) / 33 ) + ( 87 * 4 ) )       = 3101.93939394
+
+            Console.WriteLine("Welcome to the Calculator program!");
+            Console.WriteLine("To use the calculator please make sure you are pressing space after each number, operation symbol or bracket!");
+            Console.WriteLine("Example: ");
+            Console.WriteLine("11 * 22 + 33 * 11 / 22 + 11 + 435 * ( 78 / 13.5 )");
+            Console.WriteLine();
+            Console.WriteLine("if you want to exit the program type \"exit\"");
+            Console.WriteLine();
+            Console.WriteLine();
 
 
-            Console.WriteLine(calculate(problem));
+            List<string> problem = Console.ReadLine().Split(' ').ToList();
+            Console.WriteLine();
+
+            while (problem[0] != "exit")
+            {
+                Console.Write(String.Join(" ", problem) + " = ");
+                Console.WriteLine(calculate(problem));
+                problem = Console.ReadLine().Split(' ').ToList();
+                Console.WriteLine();
+            }
         }
 
         private static double calculate(List<string> problem)
